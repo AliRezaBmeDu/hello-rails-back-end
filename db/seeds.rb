@@ -1,9 +1,15 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Array of welcome messages
+welcome_messages = [
+  "Welcome to our community!",
+  "We're excited to have you here!",
+  "Feel free to explore and connect with others.",
+  "If you have any questions, don't hesitate to ask.",
+  "Enjoy your time on our platform!"
+]
+
+# Create messages in the database
+welcome_messages.each do |content|
+  Message.create(content: content)
+end
+
+puts "Seeding complete! Created #{welcome_messages.size} welcome messages."
