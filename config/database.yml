@@ -1,4 +1,4 @@
-d# PostgreSQL. Versions 9.3 and up are supported.
+# PostgreSQL. Versions 9.3 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -18,13 +18,12 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: fekdil123
 
 development:
   <<: *default
-  database: welcome_development
-  host: localhost
-  username: postgres
-  password: fekdil123
+  database: welcome_app_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -58,8 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: welcome_test
-  host: localhost
+  database: welcome_app_test
   username: postgres
   password: fekdil123
 
