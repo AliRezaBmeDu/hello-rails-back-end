@@ -16,6 +16,15 @@ module HelloRailsBackEnd
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3001', 'http://127.0.0.1:3001' # Replace with the origin of your React app
+        resource '/api/*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
+    # config.server_port = 4000 # Desired port number
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
